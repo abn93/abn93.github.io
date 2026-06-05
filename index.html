@@ -4,154 +4,327 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Alessandro Nascimento | Portfolio</title>
-  <link rel="stylesheet" type="text/css" href="css/template.css">
+  <style>
+    /* ===== RESET & BASE ===== */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, sans-serif;
+      background-color: #f9fafb;
+      color: #111827;
+      line-height: 1.5;
+    }
+
+    :root {
+      --primary: #2563eb;
+      --primary-dark: #1d4ed8;
+      --primary-light: #eff6ff;
+      --text-primary: #111827;
+      --text-secondary: #4b5563;
+      --bg-card: #ffffff;
+      --border-light: #e5e7eb;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    .header {
+      text-align: center;
+      padding: 4rem 0 2rem;
+    }
+
+    .subtitle {
+      font-size: 1.25rem;
+      color: var(--primary);
+      font-weight: 500;
+      margin-bottom: 1rem;
+    }
+
+    .description {
+      font-size: 1.125rem;
+      color: var(--text-secondary);
+      max-width: 600px;
+      margin: 1rem auto 0;
+    }
+
+    .btn-group {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      margin-top: 2rem;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 0.75rem 1.5rem;
+      border-radius: 0.5rem;
+      font-weight: 500;
+      text-decoration: none;
+      transition: all 0.2s;
+      border: 1px solid transparent;
+    }
+
+    .btn-primary {
+      background-color: var(--primary);
+      color: white;
+    }
+
+    .btn-primary:hover {
+      background-color: var(--primary-dark);
+    }
+
+    .btn-outline {
+      border-color: var(--border-light);
+      background: transparent;
+      color: var(--text-primary);
+    }
+
+    .btn-outline:hover {
+      border-color: var(--primary);
+      color: var(--primary);
+      background-color: var(--primary-light);
+    }
+
+    .about-grid {
+      display: flex;
+      gap: 2rem;
+      background: var(--bg-card);
+      border-radius: 0.75rem;
+      padding: 2rem;
+      margin-bottom: 3rem;
+      border: 1px solid var(--border-light);
+    }
+
+    .about-text {
+      flex: 2;
+    }
+
+    .about-details {
+      flex: 1;
+      background: #f9fafb;
+      border-radius: 0.5rem;
+      padding: 1.25rem;
+    }
+
+    .detail-item {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin-bottom: 1rem;
+    }
+
+    .detail-icon {
+      font-size: 1.25rem;
+    }
+
+    .detail-label {
+      font-weight: 600;
+      margin-right: 0.5rem;
+    }
+
+    .skills-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      list-style: none;
+      margin-bottom: 3rem;
+    }
+
+    .skill-tag {
+      background: var(--bg-card);
+      border: 1px solid var(--border-light);
+      padding: 0.5rem 1rem;
+      border-radius: 9999px;
+      font-size: 0.875rem;
+    }
+
+    .projects-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 2rem;
+      flex-wrap: wrap;
+    }
+
+    .projects-link {
+      color: var(--primary);
+      text-decoration: none;
+    }
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 2rem;
+      margin-bottom: 3rem;
+    }
+
+    .project-card {
+      background: var(--bg-card);
+      border-radius: 0.75rem;
+      border: 1px solid var(--border-light);
+      transition: 0.2s;
+    }
+
+    .project-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1);
+    }
+
+    .project-content {
+      padding: 1.5rem;
+    }
+
+    .project-tech {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin: 1rem 0;
+    }
+
+    .project-tech span {
+      font-size: 0.75rem;
+      background: var(--primary-light);
+      color: var(--primary-dark);
+      padding: 0.25rem 0.75rem;
+      border-radius: 9999px;
+    }
+
+    .project-links {
+      display: flex;
+      gap: 1.5rem;
+      border-top: 1px solid var(--border-light);
+      padding-top: 1rem;
+      margin-top: 0.5rem;
+    }
+
+    .project-links a {
+      text-decoration: none;
+      font-size: 0.875rem;
+      color: var(--primary);
+    }
+
+    .cta-section {
+      text-align: center;
+      background: var(--primary-light);
+      padding: 3rem;
+      border-radius: 1rem;
+      margin-bottom: 3rem;
+    }
+
+    .contact-info {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 2rem;
+      margin: 2rem 0;
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      background: var(--bg-card);
+      padding: 0.75rem 1.5rem;
+      border-radius: 9999px;
+      border: 1px solid var(--border-light);
+    }
+
+    .footer {
+      text-align: center;
+      padding: 2rem;
+      border-top: 1px solid var(--border-light);
+      margin-top: 2rem;
+      color: #6b7280;
+    }
+
+    @media (max-width: 768px) {
+      .about-grid {
+        flex-direction: column;
+      }
+      .projects-header {
+        flex-direction: column;
+        gap: 0.5rem;
+      }
+      .contact-info {
+        flex-direction: column;
+        align-items: stretch;
+      }
+    }
+  </style>
   <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
 </head>
 <body>
-  <div class="container">
-    <!-- Header (classe .header) -->
-    <header class="header">
-      <h1>Alessandro Nascimento</h1>
-      <p class="subtitle">Full Stack Developer</p>
-      <p class="description">Passionate developer focused on building modern, scalable web solutions centered on incredible user experiences.</p>
-      <div class="btn-group">
-        <a href="#projects" class="btn btn-primary">View Projects</a>
-        <a href="#contact" class="btn btn-outline">Get in Touch</a>
-      </div>
-    </header>
+<div class="container">
+  <header class="header">
+    <h1>Alessandro Nascimento</h1>
+    <p class="subtitle">Full Stack Developer</p>
+    <p class="description">Passionate developer focused on building modern, scalable web solutions centered on incredible user experiences.</p>
+    <div class="btn-group">
+      <a href="#projects" class="btn btn-primary">View Projects</a>
+      <a href="#contact" class="btn btn-outline">Get in Touch</a>
+    </div>
+  </header>
 
-    <!-- About Me (usando .about-grid) -->
-    <section class="about-grid">
-      <div class="about-text">
-        <h2>About Me</h2>
-        <p>I'm a full stack developer focused on building robust, performant applications with clean code. I love turning ideas into real, functional products.</p>
-      </div>
-      <div class="about-details">
-        <div class="detail-item">
-          <span class="detail-icon">🧑</span>
-          <div><span class="detail-label">Age</span> <span class="detail-value">32 years</span></div>
-        </div>
-        <div class="detail-item">
-          <span class="detail-icon">📍</span>
-          <div><span class="detail-label">Location</span> <span class="detail-value">Brazil</span></div>
-        </div>
-        <div class="detail-item">
-          <span class="detail-icon">💼</span>
-          <div><span class="detail-label">Availability</span> <span class="detail-value">Freelance Projects</span></div>
-        </div>
-      </div>
-    </section>
+  <section class="about-grid">
+    <div class="about-text">
+      <h2>About Me</h2>
+      <p>I'm a full stack developer focused on building robust, performant applications with clean code. I love turning ideas into real, functional products.</p>
+    </div>
+    <div class="about-details">
+      <div class="detail-item"><span class="detail-icon">🧑</span><div><span class="detail-label">Age:</span> 32 years</div></div>
+      <div class="detail-item"><span class="detail-icon">📍</span><div><span class="detail-label">Location:</span> Brazil</div></div>
+      <div class="detail-item"><span class="detail-icon">💼</span><div><span class="detail-label">Availability:</span> Freelance Projects</div></div>
+    </div>
+  </section>
 
-    <!-- Technologies (usando .skills-list e .skill-tag) -->
-    <section>
-      <h2>Technologies</h2>
-      <ul class="skills-list">
-        <li class="skill-tag">HTML</li>
-        <li class="skill-tag">CSS</li>
-        <li class="skill-tag">JavaScript</li>
-        <li class="skill-tag">TypeScript</li>
-        <li class="skill-tag">React</li>
-        <li class="skill-tag">Next.js</li>
-        <li class="skill-tag">Node.js</li>
-        <li class="skill-tag">Tailwind CSS</li>
-        <li class="skill-tag">Git</li>
-        <li class="skill-tag">GitHub</li>
-        <li class="skill-tag">PostgreSQL</li>
-        <li class="skill-tag">Docker</li>
-      </ul>
-    </section>
+  <section>
+    <h2>Technologies</h2>
+    <ul class="skills-list">
+      <li class="skill-tag">HTML</li><li class="skill-tag">CSS</li><li class="skill-tag">JavaScript</li>
+      <li class="skill-tag">TypeScript</li><li class="skill-tag">React</li><li class="skill-tag">Next.js</li>
+      <li class="skill-tag">Node.js</li><li class="skill-tag">Tailwind CSS</li><li class="skill-tag">Git</li>
+      <li class="skill-tag">GitHub</li><li class="skill-tag">PostgreSQL</li><li class="skill-tag">Docker</li>
+    </ul>
+  </section>
 
-    <!-- Featured Projects (usando .projects-grid, .project-card, etc.) -->
-    <section class="projects" id="projects">
-      <div class="projects-header">
-        <h2>Featured Projects</h2>
-        <a href="#" class="projects-link">View all projects →</a>
-      </div>
+  <section class="projects" id="projects">
+    <div class="projects-header">
+      <h2>Featured Projects</h2>
+      <a href="#" class="projects-link">View all projects →</a>
+    </div>
+    <div class="projects-grid">
+      <div class="project-card"><div class="project-content"><h3>Dashboard Analytics</h3><p>Responsive dashboard with metrics, charts and dynamic filters.</p><div class="project-tech"><span>Next.js</span><span>TypeScript</span><span>Tailwind CSS</span></div><div class="project-links"><a href="#">View project →</a><a href="#">GitHub →</a></div></div></div>
+      <div class="project-card"><div class="project-content"><h3>Task Manager</h3><p>Task management app with authentication and categories.</p><div class="project-tech"><span>React</span><span>Node.js</span><span>MongoDB</span></div><div class="project-links"><a href="#">View project →</a><a href="#">GitHub →</a></div></div></div>
+      <div class="project-card"><div class="project-content"><h3>E-Commerce</h3><p>Complete online store with cart, payments and admin panel.</p><div class="project-tech"><span>Next.js</span><span>Stripe</span><span>PostgreSQL</span></div><div class="project-links"><a href="#">View project →</a><a href="#">GitHub →</a></div></div></div>
+    </div>
+  </section>
 
-      <div class="projects-grid">
-        <!-- Card 1 -->
-        <div class="project-card">
-          <div class="project-content">
-            <h3>Dashboard Analytics</h3>
-            <p>Responsive dashboard with metrics, charts and dynamic filters.</p>
-            <div class="project-tech">
-              <span>Next.js</span>
-              <span>TypeScript</span>
-              <span>Tailwind CSS</span>
-            </div>
-            <div class="project-links">
-              <a href="#">View project →</a>
-              <a href="#">GitHub →</a>
-            </div>
-          </div>
-        </div>
+  <section class="cta-section">
+    <h2>Let's work together?</h2>
+    <p>I'm always open to new challenges and opportunities to create amazing things.</p>
+    <a href="#contact" class="btn btn-primary">Get in Touch</a>
+  </section>
 
-        <!-- Card 2 -->
-        <div class="project-card">
-          <div class="project-content">
-            <h3>Task Manager</h3>
-            <p>Task management app with authentication and categories.</p>
-            <div class="project-tech">
-              <span>React</span>
-              <span>Node.js</span>
-              <span>MongoDB</span>
-            </div>
-            <div class="project-links">
-              <a href="#">View project →</a>
-              <a href="#">GitHub →</a>
-            </div>
-          </div>
-        </div>
+  <section id="contact">
+    <h2>Contact</h2>
+    <div class="contact-info">
+      <div class="contact-item"><span class="contact-icon">✉️</span><a href="mailto:alessandro@email.com" style="color:inherit; text-decoration:none;">alessandro@email.com</a></div>
+      <div class="contact-item"><span class="contact-icon">📞</span>+55 11 99999-9999</div>
+      <div class="contact-item"><span class="contact-icon">📍</span>Brazil</div>
+    </div>
+  </section>
 
-        <!-- Card 3 -->
-        <div class="project-card">
-          <div class="project-content">
-            <h3>E-Commerce</h3>
-            <p>Complete online store with cart, payments and admin panel.</p>
-            <div class="project-tech">
-              <span>Next.js</span>
-              <span>Stripe</span>
-              <span>PostgreSQL</span>
-            </div>
-            <div class="project-links">
-              <a href="#">View project →</a>
-              <a href="#">GitHub →</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Call to Action (usando .cta-section) -->
-    <section class="cta-section">
-      <h2>Let's work together?</h2>
-      <p>I'm always open to new challenges and opportunities to create amazing things.</p>
-      <a href="#contact" class="btn btn-primary">Get in Touch</a>
-    </section>
-
-    <!-- Contact Section (usando .contact-info) -->
-    <section id="contact">
-      <h2>Contact</h2>
-      <div class="contact-info">
-        <div class="contact-item">
-          <span class="contact-icon">✉️</span>
-          <a href="mailto:alessandro@email.com" class="contact-text">alessandro@email.com</a>
-        </div>
-        <div class="contact-item">
-          <span class="contact-icon">📞</span>
-          <span class="contact-text">+55 11 99999-9999</span>
-        </div>
-        <div class="contact-item">
-          <span class="contact-icon">📍</span>
-          <span class="contact-text">Brazil</span>
-        </div>
-      </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="footer">
-      <p>&copy; 2025 Alessandro Nascimento. All rights reserved.</p>
-    </footer>
-  </div>
+  <footer class="footer">
+    <p>&copy; 2025 Alessandro Nascimento</p>
+  </footer>
+</div>
 </body>
 </html>
