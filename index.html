@@ -6,106 +6,151 @@
   <title>Alessandro Nascimento | Portfolio</title>
   <link rel="stylesheet" type="text/css" href="css/template.css">
   <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
-  <!-- -->
-  <!-- force rebuild -->
 </head>
 <body>
   <div class="container">
-    <!-- Header -->
-    <header>
+    <!-- Header (classe .header) -->
+    <header class="header">
       <h1>Alessandro Nascimento</h1>
       <p class="subtitle">Full Stack Developer</p>
       <p class="description">Passionate developer focused on building modern, scalable web solutions centered on incredible user experiences.</p>
-      <div class="header-buttons">
+      <div class="btn-group">
         <a href="#projects" class="btn btn-primary">View Projects</a>
-        <a href="#contact" class="btn btn-secondary">Get in Touch</a>
+        <a href="#contact" class="btn btn-outline">Get in Touch</a>
       </div>
     </header>
 
-    <!-- About Me -->
-    <section class="about">
-      <h2>About Me</h2>
-      <p>I'm a full stack developer focused on building robust, performant applications with clean code. I love turning ideas into real, functional products.</p>
-      <div class="info-grid">
-        <div><span>Age</span> 32</div>
-        <div><span>Location</span> Brazil</div>
-        <div><span>Availability</span> Freelance Projects</div>
+    <!-- About Me (usando .about-grid) -->
+    <section class="about-grid">
+      <div class="about-text">
+        <h2>About Me</h2>
+        <p>I'm a full stack developer focused on building robust, performant applications with clean code. I love turning ideas into real, functional products.</p>
+      </div>
+      <div class="about-details">
+        <div class="detail-item">
+          <span class="detail-icon">🧑</span>
+          <div><span class="detail-label">Age</span> <span class="detail-value">32 years</span></div>
+        </div>
+        <div class="detail-item">
+          <span class="detail-icon">📍</span>
+          <div><span class="detail-label">Location</span> <span class="detail-value">Brazil</span></div>
+        </div>
+        <div class="detail-item">
+          <span class="detail-icon">💼</span>
+          <div><span class="detail-label">Availability</span> <span class="detail-value">Freelance Projects</span></div>
+        </div>
       </div>
     </section>
 
-    <!-- Technologies -->
-    <section class="technologies">
+    <!-- Technologies (usando .skills-list e .skill-tag) -->
+    <section>
       <h2>Technologies</h2>
-      <div class="tech-list">
-        <span>HTML</span> <span>CSS</span> <span>JavaScript</span> <span>TypeScript</span>
-        <span>React</span> <span>Next.js</span> <span>Node.js</span> <span>Tailwind CSS</span>
-        <span>Git</span> <span>GitHub</span> <span>PostgreSQL</span> <span>Docker</span>
-      </div>
+      <ul class="skills-list">
+        <li class="skill-tag">HTML</li>
+        <li class="skill-tag">CSS</li>
+        <li class="skill-tag">JavaScript</li>
+        <li class="skill-tag">TypeScript</li>
+        <li class="skill-tag">React</li>
+        <li class="skill-tag">Next.js</li>
+        <li class="skill-tag">Node.js</li>
+        <li class="skill-tag">Tailwind CSS</li>
+        <li class="skill-tag">Git</li>
+        <li class="skill-tag">GitHub</li>
+        <li class="skill-tag">PostgreSQL</li>
+        <li class="skill-tag">Docker</li>
+      </ul>
     </section>
 
-    <!-- Featured Projects -->
+    <!-- Featured Projects (usando .projects-grid, .project-card, etc.) -->
     <section class="projects" id="projects">
-      <div class="section-header">
+      <div class="projects-header">
         <h2>Featured Projects</h2>
-        <a href="#" class="link-all">View all projects →</a>
+        <a href="#" class="projects-link">View all projects →</a>
       </div>
 
-      <div class="cards">
+      <div class="projects-grid">
         <!-- Card 1 -->
-        <div class="card">
-          <h3>Dashboard Analytics</h3>
-          <p>Responsive dashboard with metrics, charts and dynamic filters.</p>
-          <div class="tech-tags">
-            <span>Next.js</span> <span>TypeScript</span> <span>Tailwind CSS</span>
-          </div>
-          <div class="card-links">
-            <a href="#">View project →</a>
-            <a href="#">GitHub →</a>
+        <div class="project-card">
+          <div class="project-content">
+            <h3>Dashboard Analytics</h3>
+            <p>Responsive dashboard with metrics, charts and dynamic filters.</p>
+            <div class="project-tech">
+              <span>Next.js</span>
+              <span>TypeScript</span>
+              <span>Tailwind CSS</span>
+            </div>
+            <div class="project-links">
+              <a href="#">View project →</a>
+              <a href="#">GitHub →</a>
+            </div>
           </div>
         </div>
 
         <!-- Card 2 -->
-        <div class="card">
-          <h3>Task Manager</h3>
-          <p>Task management app with authentication and categories.</p>
-          <div class="tech-tags">
-            <span>React</span> <span>Node.js</span> <span>MongoDB</span>
-          </div>
-          <div class="card-links">
-            <a href="#">View project →</a>
-            <a href="#">GitHub →</a>
+        <div class="project-card">
+          <div class="project-content">
+            <h3>Task Manager</h3>
+            <p>Task management app with authentication and categories.</p>
+            <div class="project-tech">
+              <span>React</span>
+              <span>Node.js</span>
+              <span>MongoDB</span>
+            </div>
+            <div class="project-links">
+              <a href="#">View project →</a>
+              <a href="#">GitHub →</a>
+            </div>
           </div>
         </div>
 
         <!-- Card 3 -->
-        <div class="card">
-          <h3>E-Commerce</h3>
-          <p>Complete online store with cart, payments and admin panel.</p>
-          <div class="tech-tags">
-            <span>Next.js</span> <span>Stripe</span> <span>PostgreSQL</span>
-          </div>
-          <div class="card-links">
-            <a href="#">View project →</a>
-            <a href="#">GitHub →</a>
+        <div class="project-card">
+          <div class="project-content">
+            <h3>E-Commerce</h3>
+            <p>Complete online store with cart, payments and admin panel.</p>
+            <div class="project-tech">
+              <span>Next.js</span>
+              <span>Stripe</span>
+              <span>PostgreSQL</span>
+            </div>
+            <div class="project-links">
+              <a href="#">View project →</a>
+              <a href="#">GitHub →</a>
+            </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Call to Action -->
-    <section class="cta">
+    <!-- Call to Action (usando .cta-section) -->
+    <section class="cta-section">
       <h2>Let's work together?</h2>
       <p>I'm always open to new challenges and opportunities to create amazing things.</p>
       <a href="#contact" class="btn btn-primary">Get in Touch</a>
     </section>
 
-    <!-- Contact Footer -->
-    <footer id="contact">
-      <p>
-        <a href="mailto:alessandro@email.com">alessandro@email.com</a><br>
-        +55 11 99999-9999<br>
-        Brazil
-      </p>
+    <!-- Contact Section (usando .contact-info) -->
+    <section id="contact">
+      <h2>Contact</h2>
+      <div class="contact-info">
+        <div class="contact-item">
+          <span class="contact-icon">✉️</span>
+          <a href="mailto:alessandro@email.com" class="contact-text">alessandro@email.com</a>
+        </div>
+        <div class="contact-item">
+          <span class="contact-icon">📞</span>
+          <span class="contact-text">+55 11 99999-9999</span>
+        </div>
+        <div class="contact-item">
+          <span class="contact-icon">📍</span>
+          <span class="contact-text">Brazil</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <p>&copy; 2025 Alessandro Nascimento. All rights reserved.</p>
     </footer>
   </div>
 </body>
